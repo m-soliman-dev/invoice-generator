@@ -1,0 +1,13 @@
+{
+  "number": "001",
+  "from": "Mohamed Soliman",
+  "client": "Corner Shop",
+  "currency": "EGP",
+  "tax_percent": 14,
+  "discount_percent": 0,
+  "items": [
+    {"description": "Business website - 3 pages", "quantity": 1, "unit_price": 3000},
+    {"description": "Logo cleanup", "quantity": 1, "unit_price": 400},
+    {"description": "Monthly maintenance", "quantity": 2, "unit_price": 250}
+  ]
+}
