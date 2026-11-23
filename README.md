@@ -51,3 +51,25 @@ python -m unittest test_invoice_generator.py -v
   writing one byte-for-byte with no libraries
 - Careful money calculations with rounding at every step
 - Separating calculation, layout and output so each part is testable
+
+## Case study
+
+**The problem.** A freelancer needs a clean, printable invoice fast, without
+paying for software or trusting an online generator with client data.
+
+**Technologies.** Python 3 standard library only. The PDF is written
+directly, byte for byte - PDF objects, the xref table and the content stream
+- using the built-in Helvetica fonts. Calculation, layout and file output
+are separate functions, so each is unit-tested on its own, and money is
+rounded at every step.
+
+**The result.** A small JSON file (client, items, tax, discount) becomes a
+one-page A4 PDF invoice with an item table, subtotal, discount, tax and
+grand total, in any currency label.
+
+**Limits (being upfront).** One page per invoice, and the built-in Helvetica
+font covers Latin characters, so item descriptions are written in English -
+rendering Arabic text would require embedding a font, which is where a
+library such as reportlab would take over. Writing the PDF by hand was a
+deliberate exercise to understand the format; for heavy production use a
+dedicated library is the pragmatic choice.
